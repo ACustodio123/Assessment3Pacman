@@ -1,34 +1,43 @@
 fileFormatVersion: 2
-guid: 65c5e535887351440ab2996ebe005add
+guid: 647330a37f7964c46999f617699f5afa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 645411862609229670
-    second: Map_0
+      213: 5933083546882588293
+    second: OrangeSpider_0
   - first:
-      213: -3276122099754389042
-    second: Map_1
+      213: 8104557392443146394
+    second: OrangeSpider_1
   - first:
-      213: -135665275369439952
-    second: Map_2
+      213: 2653545115692853276
+    second: OrangeSpider_2
   - first:
-      213: 6732742066884364779
-    second: Map_3
+      213: 74549532760860538
+    second: OrangeSpider_3
   - first:
-      213: -7324858090283886608
-    second: Map_4
+      213: -8539592918480596042
+    second: OrangeSpider_4
   - first:
-      213: 4945718543514210754
-    second: Map_5
+      213: -3221579854524652349
+    second: OrangeSpider_5
   - first:
-      213: -7516791614127822498
-    second: Map_6
+      213: 6734844652405993554
+    second: OrangeSpider_6
   - first:
-      213: -172109923268554218
-    second: Map_7
+      213: 6776708116125404104
+    second: OrangeSpider_7
   - first:
-      213: -7902874161665819209
-    second: Map_8
+      213: -8361996452782264651
+    second: OrangeSpider_8
+  - first:
+      213: -6595817468654745139
+    second: OrangeSpider_9
+  - first:
+      213: -9071524178508812398
+    second: OrangeSpider_10
+  - first:
+      213: -685846005748759836
+    second: OrangeSpider_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,7 +133,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Map_0
+      name: OrangeSpider_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ade5b9baa6e731744ab62d3645460af1
+      internalID: -680448296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrangeSpider_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e8846504fd58e4abd3ca9d35613519
+      internalID: -16437849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrangeSpider_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e752e55d79ae54438b0007fc1ce6971
+      internalID: 805040737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrangeSpider_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 142e3c8787d4fd84d97dd64c189cfc54
+      internalID: 1362032061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrangeSpider_4
       rect:
         serializedVersion: 2
         x: 128
@@ -136,16 +229,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 66775a46ba6f4f800800000000000000
-      internalID: 645411862609229670
+      spriteID: 68000695d753a7249867566de5c6924d
+      internalID: -2130655272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_1
+      name: OrangeSpider_5
       rect:
         serializedVersion: 2
         x: 256
@@ -157,16 +250,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ec13553de40e882d0800000000000000
-      internalID: -3276122099754389042
+      spriteID: aa281a4757b7cb548b025579c7a988e0
+      internalID: 1540989003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_2
+      name: OrangeSpider_6
       rect:
         serializedVersion: 2
         x: 0
@@ -178,16 +271,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 03dbf3d96250e1ef0800000000000000
-      internalID: -135665275369439952
+      spriteID: 362eaca59c1c40046a465143ea14f522
+      internalID: -1062712386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_3
+      name: OrangeSpider_7
       rect:
         serializedVersion: 2
         x: 128
@@ -199,16 +292,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: be9c8fcfc318f6d50800000000000000
-      internalID: 6732742066884364779
+      spriteID: 752eecc285e17164ea82e9a3c2d5979b
+      internalID: -180768183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_4
+      name: OrangeSpider_8
       rect:
         serializedVersion: 2
         x: 256
@@ -220,16 +313,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0f79b7a2060e85a90800000000000000
-      internalID: -7324858090283886608
+      spriteID: 0c91879a5e5a10b47bae273b05110fe1
+      internalID: 2106676366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_5
+      name: OrangeSpider_9
       rect:
         serializedVersion: 2
         x: 0
@@ -241,16 +334,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2c11a31dfc8b2a440800000000000000
-      internalID: 4945718543514210754
+      spriteID: 82a98aa00ec13a94ba2a370dfc34215a
+      internalID: 87754056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_6
+      name: OrangeSpider_10
       rect:
         serializedVersion: 2
         x: 128
@@ -262,16 +355,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e59a6454addfea790800000000000000
-      internalID: -7516791614127822498
+      spriteID: a366dd209323f974ca1cbe42d3493a67
+      internalID: 1379938234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_7
+      name: OrangeSpider_11
       rect:
         serializedVersion: 2
         x: 256
@@ -283,10 +376,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6121249cfea8c9df0800000000000000
-      internalID: -172109923268554218
+      spriteID: fdbdb1479f8ffa84999a34dc2adbe0df
+      internalID: -1597680547
       vertices: []
       indices: 
       edges: []
@@ -294,7 +387,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 28a3cf83f436c264dadcc955b90a7a3f
+    spriteID: fcb3c291e2d2cbe45975090500f6eaa8
     internalID: 0
     vertices: []
     indices: 
@@ -302,14 +395,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Map_0: 645411862609229670
-      Map_1: -3276122099754389042
-      Map_2: -135665275369439952
-      Map_3: 6732742066884364779
-      Map_4: -7324858090283886608
-      Map_5: 4945718543514210754
-      Map_6: -7516791614127822498
-      Map_7: -172109923268554218
+      OrangeSpider_0: -680448296
+      OrangeSpider_1: -16437849
+      OrangeSpider_10: 1379938234
+      OrangeSpider_11: -1597680547
+      OrangeSpider_2: 805040737
+      OrangeSpider_3: 1362032061
+      OrangeSpider_4: -2130655272
+      OrangeSpider_5: 1540989003
+      OrangeSpider_6: -1062712386
+      OrangeSpider_7: -180768183
+      OrangeSpider_8: 2106676366
+      OrangeSpider_9: 87754056
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
