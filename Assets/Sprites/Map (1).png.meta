@@ -1,34 +1,10 @@
 fileFormatVersion: 2
-guid: 65c5e535887351440ab2996ebe005add
+guid: a7768ca255de4684e808d52860a0a127
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 645411862609229670
-    second: Map_0
-  - first:
-      213: -3276122099754389042
-    second: Map_1
-  - first:
-      213: -135665275369439952
-    second: Map_2
-  - first:
-      213: 6732742066884364779
-    second: Map_3
-  - first:
-      213: -7324858090283886608
-    second: Map_4
-  - first:
-      213: 4945718543514210754
-    second: Map_5
-  - first:
-      213: -7516791614127822498
-    second: Map_6
-  - first:
-      213: -172109923268554218
-    second: Map_7
-  - first:
-      213: -7902874161665819209
-    second: Map_8
+      213: -3388171239741720236
+    second: Map (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -124,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Map_0
+      name: Map (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -138,14 +114,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d7ea34b55f23a94c85b238d0cf25bd2
-      internalID: 1795917235
+      spriteID: e43aefb76263d6e468933c84c0d593de
+      internalID: -1344633582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_1
+      name: Map (1)_1
       rect:
         serializedVersion: 2
         x: 128
@@ -159,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a11f82303db95f4ab35e2c0abc34eab
-      internalID: 1801106213
+      spriteID: fad90e52483a5044d9d2c90c899fe4e9
+      internalID: 578691318
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_2
+      name: Map (1)_2
       rect:
         serializedVersion: 2
         x: 256
@@ -180,14 +156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43507a1f41701cb47843c7a95e437da2
-      internalID: -538886546
+      spriteID: f898b6dff44e55a44a17594cdc0c5965
+      internalID: 1362987925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_3
+      name: Map (1)_3
       rect:
         serializedVersion: 2
         x: 0
@@ -201,14 +177,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c80b5bbbe84b9a468de844ff767b431
-      internalID: 1909803457
+      spriteID: 526505fd0c20f134b87752f2fe26a984
+      internalID: 845115649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_4
+      name: Map (1)_4
       rect:
         serializedVersion: 2
         x: 128
@@ -222,14 +198,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d60fa2ed372e80d44b96b737f9923720
-      internalID: -365262511
+      spriteID: 116cb4f6ff199a34dbab3f9cbccad69f
+      internalID: -146223216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_5
+      name: Map (1)_5
       rect:
         serializedVersion: 2
         x: 256
@@ -243,14 +219,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 151ab26befebef24c947de9a4bd99f64
-      internalID: 1045914475
+      spriteID: 8589fd4a22a0a9b45aa8b59d7868afc4
+      internalID: 1225619148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_6
+      name: Map (1)_6
       rect:
         serializedVersion: 2
         x: 0
@@ -264,14 +240,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 881ae038164da0e48a6ba0f9b49c3621
-      internalID: -511979790
+      spriteID: 683531528e58ca149a439351b2dccf48
+      internalID: -730107344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_7
+      name: Map (1)_7
       rect:
         serializedVersion: 2
         x: 128
@@ -285,14 +261,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8f7fae29b40542469777446db68e09c
-      internalID: -1806086602
+      spriteID: 7adf0640f3b5464489e99a558263d4d9
+      internalID: 1115099732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map_8
+      name: Map (1)_8
       rect:
         serializedVersion: 2
         x: 256
@@ -306,8 +282,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e63746717883d3d45b76a7e244f5ade2
-      internalID: -401817460
+      spriteID: 2511ba43458142042926185ccc1c95cf
+      internalID: 1626999464
       vertices: []
       indices: 
       edges: []
@@ -315,7 +291,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1267b09b567250b458afb4dedfbb23ca
+    spriteID: e97e4f3ef74868c489954a793f49477a
     internalID: 0
     vertices: []
     indices: 
@@ -323,15 +299,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Map_0: 1795917235
-      Map_1: 1801106213
-      Map_2: -538886546
-      Map_3: 1909803457
-      Map_4: -365262511
-      Map_5: 1045914475
-      Map_6: -511979790
-      Map_7: -1806086602
-      Map_8: -401817460
+      Map (1)_0: -1344633582
+      Map (1)_1: 578691318
+      Map (1)_2: 1362987925
+      Map (1)_3: 845115649
+      Map (1)_4: -146223216
+      Map (1)_5: 1225619148
+      Map (1)_6: -730107344
+      Map (1)_7: 1115099732
+      Map (1)_8: 1626999464
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
