@@ -394,7 +394,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Scared Spider_0: -5735497346896535927
+      Scared Spider_1: 28310300957122468
+      Scared Spider_10: 4619948363584522653
+      Scared Spider_11: -5109054124842163131
+      Scared Spider_2: -1757122671361942122
+      Scared Spider_3: 3066571519490866791
+      Scared Spider_4: -5064110858070191912
+      Scared Spider_5: -7513933643642451728
+      Scared Spider_6: 5192997581726149250
+      Scared Spider_7: -1785276456031129684
+      Scared Spider_8: 6244181132884326428
+      Scared Spider_9: 8365146812013318937
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

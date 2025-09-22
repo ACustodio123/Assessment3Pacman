@@ -250,7 +250,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Super Pellet_0: 1118136719415973668
+      Super Pellet_1: -42170976527839139
+      Super Pellet_2: -7460841005795223070
+      Super Pellet_3: -5188159452982227484
+      Super Pellet_4: 4665964445888549565
+      Super Pellet_5: 3178571488970635459
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

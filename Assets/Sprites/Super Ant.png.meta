@@ -490,7 +490,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Super Ant_0: -2050471110024131551
+      Super Ant_1: 2976721248650501424
+      Super Ant_10: 3550184610340334004
+      Super Ant_11: -8723262850856454636
+      Super Ant_12: -815883597419792353
+      Super Ant_13: 7132017307280694399
+      Super Ant_14: 1233273449515081937
+      Super Ant_15: 8767413343718557811
+      Super Ant_2: 3540678342952080570
+      Super Ant_3: 400308521272522682
+      Super Ant_4: 7916161997622554075
+      Super Ant_5: -7658007610870257163
+      Super Ant_6: 1177100155912470627
+      Super Ant_7: 6435689967924972003
+      Super Ant_8: 5925855323302832735
+      Super Ant_9: 2779135384283708587
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -370,7 +370,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Spider_0: -3438905571476058607
+      Spider_1: -3439666431560065214
+      Spider_10: -4664177610714319100
+      Spider_2: 594067532846947361
+      Spider_3: -8157787870349292481
+      Spider_4: 8989802596421927958
+      Spider_5: 8102673786920169266
+      Spider_6: -6725166634347724402
+      Spider_7: 905633704357905193
+      Spider_8: -7303839196576682541
+      Spider_9: -8230967131063585693
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

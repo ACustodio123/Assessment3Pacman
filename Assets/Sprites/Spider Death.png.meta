@@ -226,7 +226,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Spider Death_0: -6696758620974537522
+      Spider Death_1: 359165533093755844
+      Spider Death_2: -3387536338454493009
+      Spider Death_3: -4598510344553184274
+      Spider Death_4: 7907239222192764479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
