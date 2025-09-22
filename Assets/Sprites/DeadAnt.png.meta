@@ -202,7 +202,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DeadAnt_0: -5504185214612269473
+      DeadAnt_1: 7960137287635700623
+      DeadAnt_2: -4653136434249157638
+      DeadAnt_3: -4365758559290973463
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

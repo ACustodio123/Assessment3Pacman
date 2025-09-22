@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ant Life Icon_0: -6099766518771535876
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
