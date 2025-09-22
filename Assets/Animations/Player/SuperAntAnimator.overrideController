@@ -7,5 +7,13 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SuperAntAnimator
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: 011a0d2c814a9c54da6826ee24798a2d, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: aa2f31416b0fe6b4495436fe658e16ee, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 91761eba83161344aafdb73a9e3a754c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0045417db5122aa42b80375127d24849, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 84ba7f871a4e09544b35bc4e130b05ab, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1ecd4b982c9ae94489873f2f25732db4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 860aed3bf02e7164080f14bd8bf4d101, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5e4531118645254448445f98975a8266, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 61370dfa7b02fd14a87e53653e608f86, type: 2}
