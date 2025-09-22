@@ -1,0 +1,514 @@
+fileFormatVersion: 2
+guid: 7dd21f7c105e83a4f92ae2ae8386117d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5631441581331480290
+    second: Ant (2)_0
+  - first:
+      213: 3322182395111677811
+    second: Ant (2)_1
+  - first:
+      213: -5417418524458242009
+    second: Ant (2)_2
+  - first:
+      213: 6126754361999018445
+    second: Ant (2)_3
+  - first:
+      213: -1396743416692039416
+    second: Ant (2)_4
+  - first:
+      213: -9182325276631487270
+    second: Ant (2)_5
+  - first:
+      213: -7962141499602751444
+    second: Ant (2)_6
+  - first:
+      213: 7700524764349488443
+    second: Ant (2)_7
+  - first:
+      213: -2324923576588234906
+    second: Ant (2)_8
+  - first:
+      213: -4314164246271099613
+    second: Ant (2)_9
+  - first:
+      213: -5216398194129286096
+    second: Ant (2)_10
+  - first:
+      213: -8932857267364855122
+    second: Ant (2)_11
+  - first:
+      213: 393838865859618983
+    second: Ant (2)_12
+  - first:
+      213: -7128172946488206762
+    second: Ant (2)_13
+  - first:
+      213: 7875649007917887465
+    second: Ant (2)_14
+  - first:
+      213: 1821778939349778488
+    second: Ant (2)_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ant (2)_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 102
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ee70a41846e62e40800000000000000
+      internalID: 5631441581331480290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 102
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37f10b36943ca1e20800000000000000
+      internalID: 3322182395111677811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_2
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 102
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 720bb020e8671d4b0800000000000000
+      internalID: -5417418524458242009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 102
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc9c60d91aa960550800000000000000
+      internalID: 6126754361999018445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_4
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 70
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 801a4b54345cd9ce0800000000000000
+      internalID: -1396743416692039416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_5
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 70
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adc2a4a9fc3d19080800000000000000
+      internalID: -9182325276631487270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_6
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 70
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2038c8cd7ac08190800000000000000
+      internalID: -7962141499602751444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_7
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 70
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d562b5972cdda60800000000000000
+      internalID: 7700524764349488443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_8
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 34
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66f078733563cbfd0800000000000000
+      internalID: -2324923576588234906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_9
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 33
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32df156b9720124c0800000000000000
+      internalID: -4314164246271099613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_10
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 33
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03c4fe7ea71ab97b0800000000000000
+      internalID: -5216398194129286096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_11
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 34
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea28375c4ad180480800000000000000
+      internalID: -8932857267364855122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_12
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 3
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a82e42ac52377500800000000000000
+      internalID: 393838865859618983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_13
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 3
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65a550bc874a31d90800000000000000
+      internalID: -7128172946488206762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_14
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 3
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef6a94bb0deb4d60800000000000000
+      internalID: 7875649007917887465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant (2)_15
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 3
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8304b3b0b42484910800000000000000
+      internalID: 1821778939349778488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Ant (2)_0: 5631441581331480290
+      Ant (2)_1: 3322182395111677811
+      Ant (2)_10: -5216398194129286096
+      Ant (2)_11: -8932857267364855122
+      Ant (2)_12: 393838865859618983
+      Ant (2)_13: -7128172946488206762
+      Ant (2)_14: 7875649007917887465
+      Ant (2)_15: 1821778939349778488
+      Ant (2)_2: -5417418524458242009
+      Ant (2)_3: 6126754361999018445
+      Ant (2)_4: -1396743416692039416
+      Ant (2)_5: -9182325276631487270
+      Ant (2)_6: -7962141499602751444
+      Ant (2)_7: 7700524764349488443
+      Ant (2)_8: -2324923576588234906
+      Ant (2)_9: -4314164246271099613
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
