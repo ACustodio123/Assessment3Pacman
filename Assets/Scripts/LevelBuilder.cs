@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelBuilder : MonoBehaviour
 {
     public GameObject[] tilePrefabs = new GameObject[9];
-    public float tileSize = 1.0f;
+    public float tileSize = 1.28f;
 
     int[,] levelMap =
     {
@@ -45,50 +45,12 @@ public class LevelBuilder : MonoBehaviour
                 if (tileIndex < 0 || tileIndex >= tilePrefabs.Length || tilePrefabs[tileIndex] == null)
                     continue;
 
-                Vector3 position = new Vector3(x * tileSize, -y * tileSize, 0);
-                Quaternion rotation = Quaternion.identity;
-
-                // --- 🔄 Rotation logic for corner tiles ---
-                if (tileIndex == 1) // Outer Corner
-                {
-                    bool up = y > 0 && IsWall(levelMap[y - 1, x]);
-                    bool down = y < rows - 1 && IsWall(levelMap[y + 1, x]);
-                    bool left = x > 0 && IsWall(levelMap[y, x - 1]);
-                    bool right = x < cols - 1 && IsWall(levelMap[y, x + 1]);
-
-                    if (down && right)
-                        rotation = Quaternion.Euler(0, 0, 0);     // Top-left corner
-                    else if (down && left)
-                        rotation = Quaternion.Euler(0, 0, 90);    // Top-right
-                    else if (up && left)
-                        rotation = Quaternion.Euler(0, 0, 180);   // Bottom-right
-                    else if (up && right)
-                        rotation = Quaternion.Euler(0, 0, 270);   // Bottom-left
-                }
-
-                else if (tileIndex == 2)
-                {
-                    bool up = y > 0 && IsWall(levelMap[y - 1, x]);
-                    bool down = y < rows - 1 && IsWall(levelMap[y + 1, x]);
-                    bool left = x > 0 && IsWall(levelMap[y, x - 1]);
-                    bool right = x < cols - 1 && IsWall(levelMap[y, x + 1]);
-
-                    if ((left && right) && !(up || down))
-                        rotation = Quaternion.Euler(0, 0, 0); // horizontal wall
-                    else if ((up && down) && !(left || right))
-                        rotation = Quaternion.Euler(0, 0, 90); // vertical wall
-                }                
+                Vector3 position = new Vector3(x * tileSize * 1.28f, -y * tileSize * 1.28f, 0);
+                Quaternion rotation = Quaternion.identity;        
 
                 Instantiate(tilePrefabs[tileIndex], position, rotation, this.transform);
             }
         }
 
-        Debug.Log("Level built with corner rotation.");
-    }
-
-    bool IsWall(int tileIndex)
-    {
-        // Define which tiles count as walls
-        return tileIndex == 1 || tileIndex == 2 || tileIndex == 3 || tileIndex == 4 || tileIndex == 7 || tileIndex == 8;
     }
 }
