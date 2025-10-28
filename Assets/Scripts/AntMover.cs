@@ -18,6 +18,12 @@ public class AntMover : MonoBehaviour
         walkingSound = GetComponent<AudioSource>();
         MoveToNextWaypoint();
 
+        if (!walkingSound.isPlaying)
+        {
+            walkingSound.Play();
+        }
+
+
   
     }
 
@@ -31,10 +37,6 @@ public class AntMover : MonoBehaviour
         
         SetRotation();
         
-        if (!walkingSound.isPlaying)
-        {
-            walkingSound.Play();
-        }
 
     }
 
