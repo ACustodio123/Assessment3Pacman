@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartScene.unity
     guid: ef2d33b7da4de16498838b6c93524755
+  - enabled: 1
+    path: Assets/Scenes/Main Scene.unity
+    guid: 6b74f992ff7c4f342a58945d9fa66361
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
