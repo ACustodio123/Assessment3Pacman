@@ -53,8 +53,7 @@ public void SetScared(bool state, float duration = 0f)
             sr.color = Color.white;
         }
     
-    Debug.Log(name + " -> SetScared(" + state + ", " + duration + ")");
-
+    // Debug.Log(name + " -> SetScared(" + state + ", " + duration + ")");
 }
 
     public bool IsScared() => isScared;

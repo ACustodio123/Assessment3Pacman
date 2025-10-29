@@ -71,7 +71,6 @@ public class CherrySpawner : MonoBehaviour
 
         current = Instantiate(cherryPrefab, a, Quaternion.identity, transform);
         current.Init(a, b, speedUnitsPerSec);
-        Debug.DrawLine(a, b, Color.red, 3f);
     }
     
     private float RoundToGrid(float v, float step)

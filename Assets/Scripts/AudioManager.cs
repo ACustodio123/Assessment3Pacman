@@ -4,45 +4,91 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource audioSource;
-    [SerializeField] private AudioClip LevelBackgroundMusic;
-    [SerializeField] private HUDManager hUDManager;
+    [Header("Sources")]
+    [SerializeField] private AudioSource audioSource;   
+    [SerializeField] private AudioSource musicSource;  
+
+    [Header("Music Clips")]
+    [SerializeField] private AudioClip levelBackgroundMusic;
+    [SerializeField] private AudioClip scaredMusic;
+
+    [Header("Scene Refs (optional gating)")]
+    [SerializeField] private HUDManager hudManager;
     [SerializeField] private PacStudentController pacstudent;
     [SerializeField] private GameObject[] ghosts;
+
+    public static AudioManager Instance { get; private set; }
+
+    private float scaredEndTime = 0f;
+    private Coroutine scaredRoutine;
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Start()
     {
-        if (pacstudent != null)
-            pacstudent.enabled = false;
+        if (pacstudent) pacstudent.enabled = false;
+        if (hudManager) hudManager.enabled = false;
+        if (ghosts != null)
+            foreach (var g in ghosts) if (g) g.SetActive(false);
 
-        if (hUDManager != null)
-            hUDManager.enabled = false;
-
-        foreach (GameObject g in ghosts)
-            if (g != null) g.SetActive(false);
-
-        if (audioSource != null)
+        if (audioSource && audioSource.clip)
         {
             audioSource.Play();
-            Invoke(nameof(PlayLevelBackgroundMusic), audioSource.clip.length);
+            Invoke(nameof(PlayLevelMusic), audioSource.clip.length);
+        }
+        else
+        {
+            PlayLevelMusic();
         }
     }
 
-    private void PlayLevelBackgroundMusic()
+    private void PlayLevelMusic()
     {
-        if (audioSource != null && LevelBackgroundMusic != null)
+        if (musicSource && levelBackgroundMusic)
         {
-            audioSource.clip = LevelBackgroundMusic;
-            audioSource.loop = true;
-            audioSource.Play();
+            musicSource.clip = levelBackgroundMusic;
+            musicSource.loop = true;
+            musicSource.Play();
         }
-        
-        if (pacstudent != null)
-            pacstudent.enabled = true;
 
-        if (hUDManager != null)
-            hUDManager.enabled = true;
+        if (pacstudent) pacstudent.enabled = true;
+        if (hudManager) hudManager.enabled = true;
+        if (ghosts != null)
+            foreach (var g in ghosts) if (g) g.SetActive(true);
+    }
 
-        foreach (GameObject g in ghosts)
-            if (g != null) g.SetActive(true);
+    public void TriggerScaredMusic(float duration)
+    {
+        if (!musicSource || !scaredMusic) return;
+
+        float now = Time.time;
+        scaredEndTime = Mathf.Max(scaredEndTime, now + Mathf.Max(0.01f, duration));
+
+        if (scaredRoutine == null)
+            scaredRoutine = StartCoroutine(ScaredMusicLoop());
+    }
+
+    private IEnumerator ScaredMusicLoop()
+    {
+        musicSource.clip = scaredMusic;
+        musicSource.loop = true;
+        musicSource.Play();
+
+        while (Time.time < scaredEndTime)
+            yield return null;
+
+        if (levelBackgroundMusic)
+        {
+            musicSource.clip = levelBackgroundMusic;
+            musicSource.loop = true;
+            musicSource.Play();
+        }
+
+        scaredRoutine = null;
     }
 }

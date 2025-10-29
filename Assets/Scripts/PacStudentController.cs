@@ -13,7 +13,6 @@ public class PacStudentController : MonoBehaviour
     [SerializeField] private float pelletCheckRadius = 0.4f;
     [SerializeField] private float ghostScaredDuration = 10f;
 
-
     [Header("Walkability")]
     [SerializeField] private LayerMask wallMask;
 
@@ -25,7 +24,17 @@ public class PacStudentController : MonoBehaviour
     [Header("Visuals")]
     [SerializeField] private ParticleSystem dust;
 
+    [Header("Wall Collision FX")]
+    [SerializeField] private ParticleSystem bumpParticlesPrefab;
+    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioClip bumpClip;
 
+    [Header("Teleporters (grid coords)")]
+    [SerializeField] private int tunnelRowY;  
+    [SerializeField] private int leftExitX;  
+    [SerializeField] private int rightExitX;   
+    [SerializeField] private int leftAppearX;    
+    [SerializeField] private int rightAppearX;  
 
     private Vector2Int lastInput = Vector2Int.zero;
     private Vector2Int currentInput = Vector2Int.zero;
@@ -56,15 +65,25 @@ public class PacStudentController : MonoBehaviour
         isMoving = false;
         gridPos = WorldToGrid(transform.position);
 
-        if (dust){ dust.Stop(true, ParticleSystemStopBehavior.StopEmitting); }
+        if (dust) { dust.Stop(true, ParticleSystemStopBehavior.StopEmitting); }
 
 
         if (moveAudio != null)
             moveAudio.Stop();
 
         animator?.SetBool("IsMoving", false);
-        Debug.Log($"StopMove at {Time.time}");
     }
+    
+    // // TEMP: press T to print current grid position
+    // private void LateUpdate()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.T))
+    //     {
+    //         var gp = WorldToGrid(transform.position);
+    //         Debug.Log($"GRID HERE -> x={gp.x}, y={gp.y}");
+    //     }
+    // }
+
 
     void Update()
     {
@@ -83,6 +102,7 @@ public class PacStudentController : MonoBehaviour
             {
                 StopMove();
                 CheckForPellets();
+                if (TryTeleportIfAtTunnel()) { return; }
             }
 
             return;
@@ -126,12 +146,32 @@ public class PacStudentController : MonoBehaviour
         Vector2Int next = gridPos + dir;
 
         if (!IsWalkable(next))
+        {
+            PlayBumpFX(dir);
             return false;
+        }
 
         StartMove(dir);
         UpdateAnimation(dir);
 
         return true;
+    }
+    
+    private void PlayBumpFX(Vector2Int dir)
+    {
+        Vector3 hitPos = transform.position + new Vector3(dir.x, dir.y, 0f) * (tileSize * 0.5f);
+
+        if (bumpParticlesPrefab != null)
+        {
+            ParticleSystem bumpFx = Instantiate(bumpParticlesPrefab, hitPos, Quaternion.identity);
+            bumpFx.Play();
+            Destroy(bumpFx.gameObject, 1f);
+        }
+
+        if (sfxSource != null && bumpClip != null)
+        {
+            sfxSource.PlayOneShot(bumpClip);
+        }
     }
 
     private void StartMove(Vector2Int dir)
@@ -146,7 +186,6 @@ public class PacStudentController : MonoBehaviour
             var em = dust.emission; em.enabled = true;
             dust.Clear();
             dust.Play(true);
-            Debug.Log($"StartMove at {Time.time}");
         }
 
         if (moveAudio)
@@ -214,6 +253,13 @@ public class PacStudentController : MonoBehaviour
             {
                 hudManager?.AddScore(50);
                 hudManager?.StartGhostTimer(ghostScaredDuration);
+                AudioManager.Instance?.TriggerScaredMusic(ghostScaredDuration);
+                Destroy(hit.gameObject);
+            }
+
+            else if (hit.CompareTag("Cherry"))
+            {
+                hudManager?.AddScore(100);
                 Destroy(hit.gameObject);
             }
         }
@@ -228,6 +274,37 @@ public class PacStudentController : MonoBehaviour
             if (h.CompareTag("Pellet") || h.CompareTag("PowerPellet"))
                 return true;
         return false;
+    }
+
+    private bool TryTeleportIfAtTunnel()
+    {
+        Vector2Int dir = currentInput != Vector2Int.zero ? currentInput : lastInput;
+        if (gridPos.y != tunnelRowY || (dir != Vector2Int.left && dir != Vector2Int.right)) { return false; }
+
+        if (dir == Vector2Int.left && gridPos.x <= leftExitX)
+        {
+            Vector2Int newPos = new Vector2Int(leftAppearX, tunnelRowY);
+            TeleportTo(newPos, dir);
+            //Debug.Log($"Wrapped LEFT → RIGHT at y={tunnelRowY}. New gridPos={gridPos}");
+            return true;
+        }
+
+        if (dir == Vector2Int.right && gridPos.x >= rightExitX)
+        {
+            Vector2Int newPos = new Vector2Int(rightAppearX, tunnelRowY);
+            TeleportTo(newPos, dir);
+            //Debug.Log($"Wrapped RIGHT → LEFT at y={tunnelRowY}. New gridPos={gridPos}");
+            return true;
+        }
+        return false;
+    }
+
+    private void TeleportTo(Vector2Int newGridPos, Vector2Int continueDir)
+    {
+        gridPos = newGridPos;
+        transform.position = GridToWorld(gridPos);
+        StartMove(continueDir);
+        UpdateAnimation(continueDir);
     }
 
 }
