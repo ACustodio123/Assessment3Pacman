@@ -7,6 +7,8 @@ public class LevelBuilder : MonoBehaviour
     public GameObject[] tilePrefabs = new GameObject[9];
     public float tileSize = 1.28f;
 
+    public int[,] LevelMap => levelMap;
+
     int[,] levelMap =
     {
         {1,2,2,2,2,2,2,2,2,2,2,2,2,7},

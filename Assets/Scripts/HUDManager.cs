@@ -23,6 +23,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private string startSceneName = "StartScene";
     [SerializeField] private string levelDisplayName = "Level 1";
 
+    [SerializeField] private GhostController[] ghosts;
+
     private int score = 0;
     private int lives;
     private float gameTimer = 0.0f;
@@ -95,6 +97,9 @@ public class HUDManager : MonoBehaviour
     {
         ghostTimer = Mathf.Max(0f, durationSecs);
         if (ghostTimer > 0f) { ghostTimerTxt.gameObject.SetActive(true); }
+        foreach (var g in ghosts)
+            if (g != null)
+                g.SetScared(true, ghostTimer);
     }
 
     private void UpdateLivesUI()
