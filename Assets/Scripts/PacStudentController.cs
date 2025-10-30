@@ -30,12 +30,24 @@ public class PacStudentController : MonoBehaviour
     [SerializeField] private AudioClip bumpClip;
 
     [Header("Teleporters (grid coords)")]
-    [SerializeField] private int tunnelRowY;  
-    [SerializeField] private int leftExitX;  
-    [SerializeField] private int rightExitX;   
-    [SerializeField] private int leftAppearX;    
-    [SerializeField] private int rightAppearX;  
+    [SerializeField] private int tunnelRowY;
+    [SerializeField] private int leftExitX;
+    [SerializeField] private int rightExitX;
+    [SerializeField] private int leftAppearX;
+    [SerializeField] private int rightAppearX;
 
+    [Header("Ghost Collision / Death")]
+    [SerializeField] private float ghostCheckRadius = 0.4f;
+    [SerializeField] private GhostController[] ghosts; 
+    [SerializeField] private ParticleSystem deathFX;
+    [SerializeField] private Vector3 respawnWorldPos; 
+    [SerializeField] private Sprite deadUp;
+    [SerializeField] private Sprite deadDown;
+    [SerializeField] private Sprite deadLeft;
+    [SerializeField] private Sprite deadRight;
+    [SerializeField] private float PowerPelletDuration = 10f;
+
+    // movement state
     private Vector2Int lastInput = Vector2Int.zero;
     private Vector2Int currentInput = Vector2Int.zero;
     private bool isMoving = false;
@@ -44,6 +56,12 @@ public class PacStudentController : MonoBehaviour
     private float moveT = 0f;
     private float moveDuration;
     private Vector2Int gridPos;
+
+    // death
+    private bool isDead = false;
+    private Coroutine powerRoutine;
+
+    private bool isFrozen = false;
 
     void Awake()
     {
@@ -57,7 +75,10 @@ public class PacStudentController : MonoBehaviour
         moveDuration = 1f / Mathf.Max(0.1f, tilesPerSecond);
     }
 
-    void OnValidate() { RecalcMoveDuration(); }
+    void OnValidate()
+    {
+        RecalcMoveDuration();
+    }
 
     private void StopMove()
     {
@@ -65,34 +86,25 @@ public class PacStudentController : MonoBehaviour
         isMoving = false;
         gridPos = WorldToGrid(transform.position);
 
-        if (dust) { dust.Stop(true, ParticleSystemStopBehavior.StopEmitting); }
-
+        StopDust();
 
         if (moveAudio != null)
             moveAudio.Stop();
 
         animator?.SetBool("IsMoving", false);
     }
-    
-    // // TEMP: press T to print current grid position
-    // private void LateUpdate()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.T))
-    //     {
-    //         var gp = WorldToGrid(transform.position);
-    //         Debug.Log($"GRID HERE -> x={gp.x}, y={gp.y}");
-    //     }
-    // }
-
 
     void Update()
     {
+        if (isDead || isFrozen) { return; }
+        // read input
         Vector2Int input = ReadDiscreteInput();
         if (input != Vector2Int.zero)
         {
             lastInput = input;
         }
 
+        // moving lerp
         if (isMoving)
         {
             moveT += Time.deltaTime / moveDuration;
@@ -102,22 +114,37 @@ public class PacStudentController : MonoBehaviour
             {
                 StopMove();
                 CheckForPellets();
-                if (TryTeleportIfAtTunnel()) { return; }
+
+                // teleporter check first
+                if (TryTeleportIfAtTunnel())
+                    return;
+
+                // then ghost collision check
+                if (!isDead)
+                    CheckForGhostHit();
             }
 
             return;
         }
 
+        // not moving: try lastInput first
         if (lastInput != Vector2Int.zero && TryMove(lastInput))
         {
             currentInput = lastInput;
             return;
         }
-        
+
+        // otherwise keep moving in currentInput
         if (currentInput != Vector2Int.zero)
         {
             TryMove(currentInput);
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+            {
+            Vector2Int gp = WorldToGrid(transform.position);
+            Debug.Log($"PacStudent grid position: ({gp.x}, {gp.y}) | World pos: {transform.position}");
+            }
     }
 
     private Vector2Int ReadDiscreteInput()
@@ -153,10 +180,11 @@ public class PacStudentController : MonoBehaviour
 
         StartMove(dir);
         UpdateAnimation(dir);
+        PlayDust();
 
         return true;
     }
-    
+
     private void PlayBumpFX(Vector2Int dir)
     {
         Vector3 hitPos = transform.position + new Vector3(dir.x, dir.y, 0f) * (tileSize * 0.5f);
@@ -181,13 +209,7 @@ public class PacStudentController : MonoBehaviour
         startPos = transform.position;
         targetPos = startPos + new Vector3(dir.x, dir.y, 0f) * tileSize;
 
-        if (dust)
-        {
-            var em = dust.emission; em.enabled = true;
-            dust.Clear();
-            dust.Play(true);
-        }
-
+        // audio
         if (moveAudio)
         {
             bool pelletAhead = IsPelletAhead(dir);
@@ -198,9 +220,21 @@ public class PacStudentController : MonoBehaviour
                 moveAudio.loop = true;
                 moveAudio.Play();
             }
-
         }
+
         animator?.SetBool("IsMoving", true);
+    }
+
+    private void PlayDust()
+    {
+        if (!dust) return;
+        if (!dust.isPlaying) dust.Play();
+    }
+
+    private void StopDust()
+    {
+        if (dust && dust.isPlaying)
+            dust.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
 
     private bool IsWalkable(Vector2Int gp)
@@ -211,30 +245,14 @@ public class PacStudentController : MonoBehaviour
         return hit == null;
     }
 
-    private bool InBounds(int[,] map, Vector2Int gp)
-    {
-        int rows = map.GetLength(0);
-        int cols = map.GetLength(1);
-        return gp.x >= 0 && gp.x < cols && gp.y >= 0 && gp.y < rows;
-    }
-
-    private bool Contains(int[] arr, int value)
-    {
-        if (arr == null) return false;
-        for (int i = 0; i < arr.Length; i++)
-            if (arr[i] == value) return true;
-        return false;
-    }
-
     private void UpdateAnimation(Vector2Int dir)
     {
-        if (animator != null)
-        {
-            if (dir == Vector2Int.right) { animator.SetInteger("Direction", 0); if (sr) sr.flipX = false; }
-            if (dir == Vector2Int.left) { animator.SetInteger("Direction", 1); if (sr) sr.flipX = false; }
-            if (dir == Vector2Int.up) { animator.SetInteger("Direction", 2); if (sr) sr.flipX = false; }
-            if (dir == Vector2Int.down) { animator.SetInteger("Direction", 3); if (sr) sr.flipX = false; }
-        }
+        if (animator == null) return;
+
+        if (dir == Vector2Int.right) { animator.SetInteger("Direction", 0); if (sr) sr.flipX = false; }
+        else if (dir == Vector2Int.left) { animator.SetInteger("Direction", 1); if (sr) sr.flipX = false; }
+        else if (dir == Vector2Int.up) { animator.SetInteger("Direction", 2); if (sr) sr.flipX = false; }
+        else if (dir == Vector2Int.down) { animator.SetInteger("Direction", 3); if (sr) sr.flipX = false; }
     }
 
     private void CheckForPellets()
@@ -247,22 +265,54 @@ public class PacStudentController : MonoBehaviour
             {
                 hudManager?.AddScore(10);
                 Destroy(hit.gameObject);
+                CheckGameOverPellets();
             }
-
             else if (hit.CompareTag("PowerPellet"))
             {
                 hudManager?.AddScore(50);
                 hudManager?.StartGhostTimer(ghostScaredDuration);
                 AudioManager.Instance?.TriggerScaredMusic(ghostScaredDuration);
+                StartPowerVisuals(ghostScaredDuration);
                 Destroy(hit.gameObject);
             }
-
             else if (hit.CompareTag("Cherry"))
             {
                 hudManager?.AddScore(100);
                 Destroy(hit.gameObject);
             }
         }
+    }
+
+    private void CheckGameOverPellets()
+    {
+        if (GameObject.FindGameObjectsWithTag("Pellet").Length == 0 && GameObject.FindGameObjectsWithTag("PowerPellet").Length == 0)
+        {
+            hudManager?.TriggerGameOver();
+        }
+    }
+
+    private void StartPowerVisuals(float duration)
+    {
+        if (powerRoutine != null)
+        {
+            StopCoroutine(powerRoutine);
+        }
+        powerRoutine = StartCoroutine(PowerVisualsRoutine(duration));
+    }
+
+    private IEnumerator PowerVisualsRoutine(float duration)
+    {
+        if (animator != null)
+        {
+            animator.SetBool("IsPowered", true);
+        }
+        yield return new WaitForSeconds(duration);
+
+        if (animator != null)
+        {
+            animator.SetBool("IsPowered", false);
+        }
+        powerRoutine = null;
     }
 
     private bool IsPelletAhead(Vector2Int dir)
@@ -279,13 +329,13 @@ public class PacStudentController : MonoBehaviour
     private bool TryTeleportIfAtTunnel()
     {
         Vector2Int dir = currentInput != Vector2Int.zero ? currentInput : lastInput;
-        if (gridPos.y != tunnelRowY || (dir != Vector2Int.left && dir != Vector2Int.right)) { return false; }
+        if (gridPos.y != tunnelRowY || (dir != Vector2Int.left && dir != Vector2Int.right))
+            return false;
 
         if (dir == Vector2Int.left && gridPos.x <= leftExitX)
         {
             Vector2Int newPos = new Vector2Int(leftAppearX, tunnelRowY);
             TeleportTo(newPos, dir);
-            //Debug.Log($"Wrapped LEFT → RIGHT at y={tunnelRowY}. New gridPos={gridPos}");
             return true;
         }
 
@@ -293,9 +343,9 @@ public class PacStudentController : MonoBehaviour
         {
             Vector2Int newPos = new Vector2Int(rightAppearX, tunnelRowY);
             TeleportTo(newPos, dir);
-            //Debug.Log($"Wrapped RIGHT → LEFT at y={tunnelRowY}. New gridPos={gridPos}");
             return true;
         }
+
         return false;
     }
 
@@ -305,6 +355,131 @@ public class PacStudentController : MonoBehaviour
         transform.position = GridToWorld(gridPos);
         StartMove(continueDir);
         UpdateAnimation(continueDir);
+    }
+
+    private void CheckForGhostHit()
+    {
+        if (isDead) return;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, ghostCheckRadius);
+        foreach (var h in hits)
+        {
+            GhostController gc = h.GetComponent<GhostController>();
+            if (gc == null) { continue; }
+            if (gc.IsScared() && !gc.IsDead())
+            {
+                gc.KillByPlayer();
+                hudManager?.AddScore(300);
+                return;
+            }
+            if (!gc.IsDead())
+            {
+                StartCoroutine(DoDeathSequence());
+                return;
+            }
+        }
+    }
+
+    public void SetFrozen(bool f)
+    {
+        isFrozen = f;
+        if (f)
+        {
+            isMoving = false;
+            StopDust();
+
+            if (moveAudio != null && moveAudio.isPlaying) { moveAudio.Stop(); }
+            if (animator != null) { animator.SetBool("IsMoving", false); }
+        }
+    }
+
+    private IEnumerator DoDeathSequence()
+    {
+        isDead = true;
+        isMoving = false;
+
+        // stop current vfx/sfx
+        StopDust();
+        if (moveAudio != null && moveAudio.isPlaying)
+            moveAudio.Stop();
+
+        if (animator != null)
+        {
+            animator.SetBool("IsMoving", false);
+            animator.enabled = false;
+        }
+
+            
+
+        // freeze ghosts
+        foreach (var g in ghosts)
+            if (g != null)
+                g.SetFrozen(true);
+
+        // death particles
+        if (deathFX != null)
+        {
+            var fx = Instantiate(deathFX, transform.position, Quaternion.identity);
+            fx.Play();
+            Destroy(fx.gameObject, 1.5f);
+        }
+
+        // show death sprite matching direction
+        if (sr != null)
+        {
+            Vector2Int dir = currentInput != Vector2Int.zero ? currentInput : lastInput;
+            if (dir == Vector2Int.up && deadUp) sr.sprite = deadUp;
+            else if (dir == Vector2Int.down && deadDown) sr.sprite = deadDown;
+            else if (dir == Vector2Int.left && deadLeft) sr.sprite = deadLeft;
+            else if (deadRight) sr.sprite = deadRight;
+        }
+
+        // lose a life
+        hudManager?.LoseLife();
+
+        // let player see the death
+        yield return new WaitForSeconds(1.0f);
+
+        // respawn
+        transform.position = respawnWorldPos;
+        gridPos = WorldToGrid(respawnWorldPos);
+        lastInput = Vector2Int.zero;
+        currentInput = Vector2Int.zero;
+
+        // reset animator to face right / idle
+        if (animator != null)
+        {
+            animator.enabled = true;
+            animator.SetBool("IsMoving", false);
+            animator.SetInteger("Direction", 0);
+            animator.SetBool("IsPowered", false);
+        }
+
+        // reset ghosts
+        foreach (var g in ghosts)
+            if (g != null)
+                g.ResetToStart();
+
+        // tiny delay before allowing death again
+        yield return new WaitForSeconds(0.3f);
+
+        yield return StartCoroutine(WaitForPlayerInput());
+
+        isDead = false;
+    }
+
+    private IEnumerator WaitForPlayerInput()
+    {
+        while (!Input.anyKeyDown) { yield return null; }
+    }
+
+    private void OnEnable()
+    {
+        if (moveAudio != null)
+            moveAudio.enabled = true;
+
+        if (sfxSource != null)
+            sfxSource.enabled = true;
     }
 
 }

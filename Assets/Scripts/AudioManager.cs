@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -26,28 +27,31 @@ public class AudioManager : MonoBehaviour
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        // SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
+    private void OnDestroy()
+    {
+        // if (Instance == this) { SceneManager.sceneLoaded -= OnSceneLoaded; }
+    }
+
+    // private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    // {
+    //     if (scene.name == "Main Scene")
+    //     {
+    //         PlayLevelMusic();
+    //     }
+    // }
 
     void Start()
     {
-        if (pacstudent) pacstudent.enabled = false;
-        if (hudManager) hudManager.enabled = false;
-        if (ghosts != null)
-            foreach (var g in ghosts) if (g) g.SetActive(false);
-
         if (audioSource && audioSource.clip)
         {
             audioSource.Play();
-            Invoke(nameof(PlayLevelMusic), audioSource.clip.length);
-        }
-        else
-        {
-            PlayLevelMusic();
         }
     }
 
-    private void PlayLevelMusic()
+    public void PlayLevelMusic()
     {
         if (musicSource && levelBackgroundMusic)
         {
@@ -56,8 +60,6 @@ public class AudioManager : MonoBehaviour
             musicSource.Play();
         }
 
-        if (pacstudent) pacstudent.enabled = true;
-        if (hudManager) hudManager.enabled = true;
         if (ghosts != null)
             foreach (var g in ghosts) if (g) g.SetActive(true);
     }
@@ -91,4 +93,13 @@ public class AudioManager : MonoBehaviour
 
         scaredRoutine = null;
     }
+
+    public void StopLevelMusic()
+    {
+        if (musicSource != null && musicSource.isPlaying)
+        {
+            musicSource.Stop();
+        }
+    }
+
 }
