@@ -10855,7 +10855,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &190521755
 GameObject:
@@ -22919,7 +22919,7 @@ Transform:
   m_GameObject: {fileID: 408300059}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 62.32, y: -6.64, z: 0}
+  m_LocalPosition: {x: 81.01, y: -39.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23017,10 +23017,19 @@ MonoBehaviour:
   sr: {fileID: 408300062}
   normalSprite: {fileID: 1984516628, guid: a39c69c131f82db44a811cee4a0f2cc2, type: 3}
   scaredSprite: {fileID: -6686258852281527298, guid: 155ddf2a3db5b104ca34c14c2f5d4d98, type: 3}
-  normalSpeed: 3
-  scaredSpeed: 1.5
+  normalSpeed: 5.9
+  scaredSpeed: 2.95
   animator: {fileID: 408300063}
   startWorldPos: {x: 46.08, y: -14.08, z: 0}
+  tileSize: 1.28
+  walkableMask:
+    serializedVersion: 2
+    m_Bits: 8
+  ghostType: 4
+  pac: {fileID: 127701086}
+  spawnWorldPos: {x: 46.08, y: -14.08, z: 0}
+  deadSpeed: 2.95
+  reachSpawnRadius: 0.2
 --- !u!61 &408300065
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31471,7 +31480,7 @@ Transform:
   m_GameObject: {fileID: 585108620}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 88.56, y: -28.21, z: 0}
+  m_LocalPosition: {x: 69.18, y: -39.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31569,10 +31578,19 @@ MonoBehaviour:
   sr: {fileID: 585108623}
   normalSprite: {fileID: 861015305, guid: 837d99d48afbab2419cc73902c557501, type: 3}
   scaredSprite: {fileID: -6686258852281527298, guid: 155ddf2a3db5b104ca34c14c2f5d4d98, type: 3}
-  normalSpeed: 3
-  scaredSpeed: 1.5
+  normalSpeed: 5.9
+  scaredSpeed: 2.95
   animator: {fileID: 585108624}
   startWorldPos: {x: 38.4, y: -14.08, z: 0}
+  tileSize: 1.28
+  walkableMask:
+    serializedVersion: 2
+    m_Bits: 8
+  ghostType: 1
+  pac: {fileID: 127701086}
+  spawnWorldPos: {x: 38.4, y: -14.08, z: 0}
+  deadSpeed: 2.95
+  reachSpawnRadius: 0.2
 --- !u!61 &585108626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48751,7 +48769,7 @@ Transform:
   m_GameObject: {fileID: 894161906}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.37, y: -39.4, z: 0}
+  m_LocalPosition: {x: 63.59, y: -38.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48849,10 +48867,19 @@ MonoBehaviour:
   sr: {fileID: 894161909}
   normalSprite: {fileID: 8152370758489641865, guid: 3468ce9861cd7bd418d21bd8715f66e0, type: 3}
   scaredSprite: {fileID: -6686258852281527298, guid: 155ddf2a3db5b104ca34c14c2f5d4d98, type: 3}
-  normalSpeed: 3
-  scaredSpeed: 1.5
+  normalSpeed: 5.9
+  scaredSpeed: 2.95
   animator: {fileID: 894161910}
   startWorldPos: {x: 34.56, y: -14.08, z: 0}
+  tileSize: 1.28
+  walkableMask:
+    serializedVersion: 2
+    m_Bits: 8
+  ghostType: 2
+  pac: {fileID: 127701086}
+  spawnWorldPos: {x: 34.56, y: -14.08, z: 0}
+  deadSpeed: 2.95
+  reachSpawnRadius: 0.2
 --- !u!61 &894161912
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79792,7 +79819,7 @@ Transform:
   m_GameObject: {fileID: 1614392024}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 100.46, y: -39.2, z: 0}
+  m_LocalPosition: {x: 75.26, y: -39.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -79890,10 +79917,19 @@ MonoBehaviour:
   sr: {fileID: 1614392027}
   normalSprite: {fileID: -680448296, guid: 647330a37f7964c46999f617699f5afa, type: 3}
   scaredSprite: {fileID: -6686258852281527298, guid: 155ddf2a3db5b104ca34c14c2f5d4d98, type: 3}
-  normalSpeed: 3
-  scaredSpeed: 1.5
+  normalSpeed: 5.9
+  scaredSpeed: 2.95
   animator: {fileID: 1614392028}
   startWorldPos: {x: 42.24, y: -14.08, z: 0}
+  tileSize: 1.28
+  walkableMask:
+    serializedVersion: 2
+    m_Bits: 8
+  ghostType: 3
+  pac: {fileID: 127701086}
+  spawnWorldPos: {x: 42.24, y: -14.08, z: 0}
+  deadSpeed: 2.95
+  reachSpawnRadius: 0.2
 --- !u!61 &1614392030
 BoxCollider2D:
   m_ObjectHideFlags: 0
